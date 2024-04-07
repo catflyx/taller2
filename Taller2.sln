@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller2", "Taller2\Taller2.csproj", "{AF314D36-5574-4B3B-966C-F725B7908151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taller2", "Taller2\Taller2.csproj", "{AF314D36-5574-4B3B-966C-F725B7908151}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10CA8E40-CFBD-46A5-8839-F7787638D287}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{4FCE64A4-7077-4CFF-90CF-981137552CEE}"
+	ProjectSection(SolutionItems) = preProject
+		Factura.cs = Factura.cs
+		Mesa.cs = Mesa.cs
+		Producto.cs = Producto.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
