@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace Taller2
 {
-    internal class Factura
+    internal class Inventario
     {
-        private float IVA; private float propina; private DateTime fecha; 
+        private string nombre;
+        Producto[] producto = new Producto[10];
+        
 
-        public void Imprimir()
+        public void Restar()
         {
 
         }
 
-        public void Pagar()
+        public void Administrar()
         {
 
         }
+
     }
 }

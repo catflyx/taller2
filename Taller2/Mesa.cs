@@ -8,8 +8,24 @@ namespace Taller2
 {
     internal class Mesa
     {
+        Producto producto = new Producto(); 
 
-        public void AgregarProducto()
+        private int id; 
+        Producto[] canasta;
+
+        public int Elegir(int id)
+        {
+            MenuPrincipal principal = new MenuPrincipal();
+
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine("Eliga una mesa");
+            Console.WriteLine();
+
+            Console.Write("- - > "); id = Convert.ToInt32(Console.ReadLine());
+            principal.ImprimirMenu(); return id;
+        }
+        public void AgregarProducto(int id)
         {
 
         }

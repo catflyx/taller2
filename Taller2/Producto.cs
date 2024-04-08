@@ -8,5 +8,11 @@ namespace Taller2
 {
     internal class Producto
     {
+        private int id; private float precio; private int cantidad;
+
+        public void Editar()
+        {
+
+        }
     }
 }
