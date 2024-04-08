@@ -6,6 +6,7 @@
         Mesa[] numMesa = new Mesa[5];
 
         Factura factura = new Factura();
+        Factura[] numFactura = new Factura[5];
 
 
         Producto producto = new Producto();
