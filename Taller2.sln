@@ -11,11 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{4FCE64A4-7077-4CFF-90CF-981137552CEE}"
-	ProjectSection(SolutionItems) = preProject
-		Factura.cs = Factura.cs
-		Mesa.cs = Mesa.cs
-		Producto.cs = Producto.cs
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

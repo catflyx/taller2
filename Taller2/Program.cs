@@ -2,6 +2,15 @@
 {
     internal class Program
     {
+        Mesa mesa = new Mesa();
+        Mesa[] numMesa = new Mesa[5];
+
+        Factura factura = new Factura();
+
+
+        Producto producto = new Producto();
+
+
         static void Main(string[] args)
         {
             //Ahora deja compilar pero, no entiendo como hacer q imprima sin q los métodos sean static
@@ -9,8 +18,9 @@
         }
         static void ImprimirMenu()
         {
-            Console.Clear(); int opcion = 0;
+            int opcion = 0;
 
+            Console.Clear();
             ImprimirTitle();
             ImprimirLinea(27, " _"); Console.WriteLine();
             ImprimirColumna(1, "|"); Console.Write("                1. Administrar mesas                   "); ImprimirColumna(1, "|");
@@ -26,7 +36,7 @@
             Console.Write("- - > "); opcion = Convert.ToInt32(Console.ReadLine());
             switch (opcion)
             {
-                case 1: /*Enviar a Clase*/ break;
+                case 1: AdminMesa(); break;
                 case 2: /*Enviar a Clase*/ break;
                 case 3: /*Enviar a Clase*/ break;
                 case 4: /*Enviar a Clase*/ break;
@@ -67,5 +77,17 @@
             Console.WriteLine("|  \\/  ||   __||  |  ||  |  |");
             Console.WriteLine("\\__ \\__/\\_____/\\__|__/\\_____/");
         }
+
+        static void AdminMesa()
+        {
+            int num = 0; int indice;
+
+            Console.Clear();
+            ImprimirLinea(10, " _"); Console.WriteLine();
+
+            num = Convert.ToInt32(Console.ReadLine());
+            indice = num; //numMesa[indice];
+        }
+
     }
 }
