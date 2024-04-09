@@ -42,10 +42,10 @@ namespace Taller2
             Console.Write("- - > "); opcion = Convert.ToInt32(Console.ReadLine());
             switch (opcion)
             {
-                case 1: mesa.Elegir(Mesaid); break; //Maso
+                case 1: mesa.Elegir(Mesaid); break; //El id no se está guardando
                 case 2: Carta(inventario.producto); break; //Listo
                 case 3: /*Enviar a Clase*/ break;
-                case 4: mesa.AgregarProducto(Mesaid); break; //Maso
+                case 4: mesa.AgregarProducto(Mesaid); break; //Maso y el id no se está guardando
                 case 5: /*Enviar a Clase*/ break;
                 case 6: /*Enviar a Clase*/ break;
                 case 7: /*Enviar a Clase*/ break;
