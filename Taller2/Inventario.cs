@@ -9,10 +9,9 @@ namespace Taller2
     internal class Inventario
     {
         private string nombre;
-        Producto[] producto = new Producto[10];
-        
+        public Producto[] producto = new Producto[10];
 
-        public void Restar()
+        public void Restar(int id)
         {
 
         }
@@ -21,6 +20,5 @@ namespace Taller2
         {
 
         }
-
     }
 }

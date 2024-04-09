@@ -8,11 +8,13 @@ namespace Taller2
 {
     internal class MenuPrincipal
     {
-        Mesa mesa = new Mesa(); int idMesa;
+        Mesa mesa = new Mesa(); int Mesaid = 0;
 
         Factura factura = new Factura();
 
         Producto producto = new Producto();
+
+        Inventario inventario = new Inventario();
 
         UI ui = new UI();
 
@@ -40,10 +42,10 @@ namespace Taller2
             Console.Write("- - > "); opcion = Convert.ToInt32(Console.ReadLine());
             switch (opcion)
             {
-                case 1: mesa.Elegir(idMesa); break;
-                case 2: /*Enviar a Clase*/ break;
+                case 1: mesa.Elegir(Mesaid); break; //Maso
+                case 2: Carta(inventario.producto); break; //Listo
                 case 3: /*Enviar a Clase*/ break;
-                case 4: /*Enviar a Clase*/ break;
+                case 4: mesa.AgregarProducto(Mesaid); break; //Maso
                 case 5: /*Enviar a Clase*/ break;
                 case 6: /*Enviar a Clase*/ break;
                 case 7: /*Enviar a Clase*/ break;
@@ -52,9 +54,19 @@ namespace Taller2
             }
         }
 
-        public void Carta()
+        public void Carta(Producto[] productos)
         {
-
+            Console.Clear();
+            //ui.Carta();
+            ui.ImprimirLinea(27, " _"); Console.WriteLine();
+            for (int i = 0; i < productos.GetLength(0); i++)
+            {
+                ui.ImprimirColumna(1, "l"); Console.Write("          ~ "); Console.Write(productos[i]);
+                Console.WriteLine();
+            }
+            ui.ImprimirLinea(27, " _"); Console.WriteLine(); Console.WriteLine();
+            Console.WriteLine("Presione cualquier tecla cuando haya terminado de revisar la carta");
+            Console.Write("- - > "); Console.ReadKey(); ImprimirMenu();
         }
     }
 }
