@@ -47,6 +47,7 @@ namespace Taller2
             Console.WriteLine("\\_____/\\__|__/\\__|\\_/ |__| \\__|__/");
 
         }
+
         public void Mesa()
         {
             Console.WriteLine(" __  __  _____  _____  _____ ");
@@ -87,5 +88,6 @@ namespace Taller2
             Console.WriteLine("|   __||  _  ||  |--|\\-  -/|  |  ||  _  <|  _  |");
             Console.WriteLine("\\__/   \\__|__/\\_____/ |__| \\_____/\\__|\\_/\\__|__/");
         }
+
     }
 }
