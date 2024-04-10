@@ -57,7 +57,7 @@ namespace Taller2
         public void Carta(Producto[] productos)
         {
             Console.Clear();
-            //ui.Carta();
+            ui.Carta();
             ui.ImprimirLinea(27, " _"); Console.WriteLine();
             for (int i = 0; i < productos.GetLength(0); i++)
             {

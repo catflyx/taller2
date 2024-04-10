@@ -13,3 +13,17 @@ C:\Users\ASUS\OneDrive\Escritorio\skulle worke\3er SEMESTRE - 2024\Programación
 C:\Users\ASUS\OneDrive\Escritorio\skulle worke\3er SEMESTRE - 2024\Programación DOO\Visual Studio\Taller2\Taller2\obj\Debug\net6.0\Taller2.pdb
 C:\Users\ASUS\OneDrive\Escritorio\skulle worke\3er SEMESTRE - 2024\Programación DOO\Visual Studio\Taller2\Taller2\obj\Debug\net6.0\Taller2.genruntimeconfig.cache
 C:\Users\ASUS\OneDrive\Escritorio\skulle worke\3er SEMESTRE - 2024\Programación DOO\Visual Studio\Taller2\Taller2\obj\Debug\net6.0\ref\Taller2.dll
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\bin\Debug\net6.0\Taller2.exe
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\bin\Debug\net6.0\Taller2.deps.json
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\bin\Debug\net6.0\Taller2.runtimeconfig.json
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\bin\Debug\net6.0\Taller2.dll
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\bin\Debug\net6.0\Taller2.pdb
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\obj\Debug\net6.0\Taller2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\obj\Debug\net6.0\Taller2.AssemblyInfoInputs.cache
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\obj\Debug\net6.0\Taller2.AssemblyInfo.cs
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\obj\Debug\net6.0\Taller2.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\obj\Debug\net6.0\Taller2.dll
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\obj\Debug\net6.0\refint\Taller2.dll
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\obj\Debug\net6.0\Taller2.pdb
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\obj\Debug\net6.0\Taller2.genruntimeconfig.cache
+C:\Users\Acer\Documents\Uni Stuff\taller programacion\taller2\Taller2\obj\Debug\net6.0\ref\Taller2.dll
