@@ -20,7 +20,7 @@ namespace Taller2
 
             Console.Clear();
             Console.WriteLine(); Console.WriteLine("MESA ACTUAL: " + id);
-            Console.WriteLine("Eliga una mesa");
+            Console.WriteLine("Elija una mesa");
             Console.WriteLine();
 
             Console.Write("- - > "); mesa = Convert.ToInt32(Console.ReadLine());

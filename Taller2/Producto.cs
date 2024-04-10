@@ -8,8 +8,8 @@ namespace Taller2
 {
     internal class Producto
     {
-        Inventario inventario = new Inventario();
-        public int id; private float precio; private int cantidad;
+        Inventario inventario = new Inventario(); //¿El inventario existe dentro de la clase producto?
+        public int id; private float precio; private int cantidad; private string nombre;
         
         public void Editar()
         {
