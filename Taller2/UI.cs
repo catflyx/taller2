@@ -38,5 +38,15 @@ namespace Taller2
             Console.WriteLine("|  \\/  ||   __||  |  ||  |  |");
             Console.WriteLine("\\__ \\__/\\_____/\\__|__/\\_____/");
         }
+
+        public void Carta()
+        {
+            Console.WriteLine(" _____  _____  _____  ____  _____");
+            Console.WriteLine("/     \\/  _  \\/  _  \\/    \\/  _  \\");
+            Console.WriteLine("|  |--||  _  ||  _  <\\-  -/|  _  |");
+            Console.WriteLine("\\_____/\\__|__/\\__|\\_/ |__| \\__|__/");
+
+        }
+
     }
 }
