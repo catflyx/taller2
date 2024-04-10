@@ -47,6 +47,5 @@ namespace Taller2
             Console.WriteLine("\\_____/\\__|__/\\__|\\_/ |__| \\__|__/");
 
         }
-
     }
 }
