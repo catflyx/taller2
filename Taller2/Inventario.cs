@@ -8,7 +8,13 @@ namespace Taller2
 {
     internal class Inventario
     {
-        Producto[] productosCarta = new Producto[10];
+        public Producto[] productosCarta = new Producto[16];
+
+        public void GuardarCarta(Producto[] productos)
+        {
+            this.productosCarta = productos;
+        }
+
 
         public void AgregarProductos()
         {

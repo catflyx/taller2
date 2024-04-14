@@ -24,7 +24,7 @@ namespace Taller2
             Console.WriteLine();
 
             Console.Write("- - > "); mesa = Convert.ToInt32(Console.ReadLine());
-            principal.ImprimirMenu(); return mesa;
+            return mesa; id = mesa;
         }
         public void AgregarProducto(int mesa)
         {
@@ -53,7 +53,7 @@ namespace Taller2
 
                 Console.Write("- - > "); opcion = Console.ReadLine();
 
-            } principal.ImprimirMenu();
+            } 
         }
         public void EditarProducto()
         {

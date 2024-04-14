@@ -8,13 +8,17 @@ namespace Taller2
 {
     internal class MenuPrincipal
     {
-        Mesa mesa = new Mesa(); int Mesaid = 0;
+        public Mesa mesa = new Mesa(); int Mesaid = 0;
+
+        public Mesa []listadoMesas = new Mesa[5];
 
         Factura factura = new Factura();
 
         Producto producto = new Producto();
 
-        Inventario inventario = new Inventario();
+        public Inventario carta = new Inventario();
+        
+        
 
         UI ui = new UI();
 
@@ -25,7 +29,6 @@ namespace Taller2
         public void ImprimirMenu()
         {
             int opcion = 0;
-
             Console.Clear();
             ui.Menu();
             ui.ImprimirLinea(27, " _"); Console.WriteLine();
@@ -43,7 +46,7 @@ namespace Taller2
             switch (opcion)
             {
                 case 1: mesa.Elegir(Mesaid); break; //El id no se está guardando
-                case 2: Carta(inventario.producto); break; //Listo
+                case 2: Carta(); break; //Listo
                 case 3: /*Enviar a Clase*/ break;
                 case 4: mesa.AgregarProducto(Mesaid); break; //Maso y el id no se está guardando
                 case 5: /*Enviar a Clase*/ break;
@@ -54,14 +57,14 @@ namespace Taller2
             }
         }
 
-        public void Carta(Producto[] productos)
+        public void Carta()
         {
             Console.Clear();
             ui.Carta();
             ui.ImprimirLinea(27, " _"); Console.WriteLine();
-            for (int i = 0; i < productos.GetLength(0); i++)
+            for (int i = 0; i < carta.productosCarta.GetLength(0); i++)
             {
-                ui.ImprimirColumna(1, "l"); Console.Write("          ~ "); Console.Write(productos[i]);
+                ui.ImprimirColumna(1, "l"); Console.Write("          ~ "); Console.Write(i+1); Console.Write(". ");Console.Write( carta.productosCarta[i].Nombre);
                 Console.WriteLine();
             }
             ui.ImprimirLinea(27, " _"); Console.WriteLine(); Console.WriteLine();
