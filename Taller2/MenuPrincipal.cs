@@ -12,11 +12,13 @@ namespace Taller2
 
         public Mesa mesa = new Mesa(); int Mesaid = 0;
 
-        public Mesa[] listadoMesas = new Mesa[5];
+        
 
         Factura factura = new Factura();
 
         public Inventario carta = new Inventario();
+
+        private int idMesa;
         
         
 
@@ -45,11 +47,11 @@ namespace Taller2
             Console.Write("- - > "); opcion = Convert.ToInt32(Console.ReadLine());
             switch (opcion)
             {
-                case 1: mesa.Elegir(Mesaid); break; //El id no se está guardando
+                case 1: idMesa =mesa.Elegir(Mesaid); break; //El id no se está guardando
                 case 2: Carta(); break; //Listo
                 case 3: EditarCarta(); break; //El buscador no sirve
-                case 4: mesa.AgregarProducto(Mesaid); break; //Maso y el id no se está guardando
-                case 5: /*Enviar a Clase*/ break;
+                case 4: Program.listadoMesas[idMesa].AgregarProducto(idMesa); Console.WriteLine(Program.listadoMesas[0].canasta[0].Ident); break; //Maso y el id no se está guardando
+                case 5: mesa.EditarProducto();mesa.ImprimirPedido(); break;
                 case 6: /*Enviar a Clase*/ break;
                 case 7: /*Enviar a Clase*/ break;
                 case 8: System.Environment.Exit(0); break;
@@ -84,7 +86,7 @@ namespace Taller2
                 Console.WriteLine("Ingrese cual producto de la carta desea cambiar");
                 Console.WriteLine();
                 Console.Write("- - > "); nomProducto = Console.ReadLine();
-                mesa.BuscarProducto(nomProducto, id); //EL buscador no funciona
+               // mesa.BuscarProducto(nomProducto, id); //EL buscador no funciona
 
                 Console.WriteLine();
                 Console.WriteLine("¿Desea cambiar <" + productosCarta[id] + ">?");

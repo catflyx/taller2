@@ -12,7 +12,7 @@ namespace Taller2
 
         public void GuardarCarta(Producto[] productos)
         {
-            this.productosCarta = productos;
+            productosCarta = productos;
         }
 
 

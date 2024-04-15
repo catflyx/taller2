@@ -2,11 +2,10 @@
 {
     internal class Program
     {
+        public static Producto[] productosCarta = new Producto[16];
+        public static Mesa[] listadoMesas = new Mesa[5];
         public static void Main(string[] args)
-        {
-            Producto[] productosCarta = new Producto[16];
-
-            productosCarta[0] = new Producto("Crema de champinones", 21000, 10);
+        { productosCarta[0] = new Producto("Crema de champinones", 21000, 10);
             productosCarta[1] = new Producto("Patacon con carne", 24000, 10);
             productosCarta[2] = new Producto("Porcion de platanitos", 7000, 15);
             productosCarta[3] = new Producto("Lasana Bolognesa", 25000, 20);
@@ -25,19 +24,55 @@
 
             for (int i = 0; i == productosCarta.Length; i++)
             {
-                productosCarta[i].id = i + 1;
+                productosCarta[i].Ident = i + 1;
             }
+
+            // Datos a guardar en el archivo CSV
+            string[][] datosMenu = new string[][]
+            {
+            new string[] { "Nombre", "precio" },
+            new string[] { "Crema de champinones", "21000" },
+            new string[] { "Patacon con carne", "24000" },
+            new string[] { "Porcion de platanitos", "7000" },
+            new string[] { "Lasana Bolognesa", "25000" },
+            new string[] { "Lomo de cerdo", "28500" }
+            } ;
+
+            // Ruta del archivo CSV
+            string rutaArchivo = "datosMenu.csv";
+
+            // Crear y escribir en el archivo CSV
+            using (StreamWriter writer = new StreamWriter(rutaArchivo))
+            {
+                foreach (string[] fila in datosMenu)
+                {
+                    writer.WriteLine(string.Join(",", fila));
+                }
+            }
+
+            Console.WriteLine("Datos guardados en el archivo CSV: " + rutaArchivo);
+            string directorioActual = Directory.GetCurrentDirectory();
+
+            Console.WriteLine("Directorio actual: " + directorioActual);
+
+
+            for (int i =0; i< listadoMesas.Length; i++)
+            {
+                listadoMesas[i]=new Mesa(i+1);
+            }
+            
+
 
             Inventario inventario= new Inventario();
             inventario.GuardarCarta(productosCarta);
 
             MenuPrincipal principal = new MenuPrincipal();
             principal.carta = inventario;
-            int num = 0;
-            while (true)
+            
+           /* while (true)
             { 
                 principal.ImprimirMenu();
-            }
+            }*/
         }
     }
 }
