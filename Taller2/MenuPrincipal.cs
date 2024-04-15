@@ -8,13 +8,13 @@ namespace Taller2
 {
     internal class MenuPrincipal
     {
+        private string nomProducto;
+
         public Mesa mesa = new Mesa(); int Mesaid = 0;
 
-        public Mesa []listadoMesas = new Mesa[5];
+        public Mesa[] listadoMesas = new Mesa[5];
 
         Factura factura = new Factura();
-
-        Producto producto = new Producto();
 
         public Inventario carta = new Inventario();
         
@@ -47,7 +47,7 @@ namespace Taller2
             {
                 case 1: mesa.Elegir(Mesaid); break; //El id no se está guardando
                 case 2: Carta(); break; //Listo
-                case 3: /*Enviar a Clase*/ break;
+                case 3: EditarCarta(); break; //El buscador no sirve
                 case 4: mesa.AgregarProducto(Mesaid); break; //Maso y el id no se está guardando
                 case 5: /*Enviar a Clase*/ break;
                 case 6: /*Enviar a Clase*/ break;
@@ -70,6 +70,39 @@ namespace Taller2
             ui.ImprimirLinea(27, " _"); Console.WriteLine(); Console.WriteLine();
             Console.WriteLine("Presione cualquier tecla cuando haya terminado de revisar la carta");
             Console.Write("- - > "); Console.ReadKey(); ImprimirMenu();
+        }
+
+        public void EditarCarta()
+        {
+            Producto[] productosCarta = new Producto[16];
+
+            int id = 0; string opcion;
+            string newN; float newP; int newC;
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("Ingrese cual producto de la carta desea cambiar");
+                Console.WriteLine();
+                Console.Write("- - > "); nomProducto = Console.ReadLine();
+                mesa.BuscarProducto(nomProducto, id); //EL buscador no funciona
+
+                Console.WriteLine();
+                Console.WriteLine("¿Desea cambiar <" + productosCarta[id] + ">?");
+                Console.Write("- - > "); opcion = Console.ReadLine();
+
+            } while (opcion == "no"); Console.WriteLine(); Console.WriteLine();
+
+            Console.WriteLine("Ingrese los nuevos datos");
+            Console.WriteLine(); Console.WriteLine("Nuevo nombre: ");
+            Console.Write("- - > "); newN = Console.ReadLine();
+            Console.WriteLine(); Console.WriteLine("Nuevo precio: ");
+            Console.Write("- - > "); newP = Convert.ToSingle(Console.ReadLine());
+            Console.WriteLine(); Console.WriteLine("Nueva cantidad: ");
+            Console.Write("- - > "); newC = Convert.ToInt32(Console.ReadLine());
+            productosCarta[id] = new Producto(newN, newP, newC);
+
+            Console.WriteLine(); Console.WriteLine(); Console.WriteLine("*  Producto editado exitosamente  *");
+            Console.ReadKey(); ImprimirMenu();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Taller2
 {
     internal class Factura
     {
-        private float IVA; private float propina; private DateTime fecha; 
+        private float IVA = 19f; private float propina; private DateTime fecha; 
 
         public void Imprimir()
         {

@@ -34,14 +34,10 @@
             MenuPrincipal principal = new MenuPrincipal();
             principal.carta = inventario;
             int num = 0;
-            while (true){ 
+            while (true)
+            { 
                 principal.ImprimirMenu();
-                
             }
-
-            
-
-            
         }
     }
 }

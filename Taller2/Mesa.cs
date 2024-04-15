@@ -9,9 +9,9 @@ namespace Taller2
 {
     internal class Mesa
     {
-        Producto producto = new Producto(); 
+        Inventario inventario = new Inventario(); MenuPrincipal principal = new MenuPrincipal();
 
-        private int id = 0; private string nomProducto;
+        private int id = 0;
         Producto[] canasta;
 
         public int Elegir(int mesa)
@@ -57,26 +57,18 @@ namespace Taller2
         }
         public void EditarProducto()
         {
-            Console.WriteLine();
-            Console.WriteLine("Ingrese cual producto desea cambiar");
-            Console.WriteLine();
-            Console.Write("- - > "); nomProducto = Console.ReadLine();
-            BuscarProducto(nomProducto, producto.id);
-
-            Console.WriteLine();
-            Console.WriteLine("Ingrese cual producto desea cambiar");
-            Console.WriteLine();
-            Console.Write("- - > "); nomProducto = Console.ReadLine();
+            
         }
 
         public int BuscarProducto(string nombre, int id)
         {
-            for (int i = 0; i < canasta.GetLength(0); i++)
+            for (int i = 0; i < inventario.productosCarta.GetLength(0); i++)
             {
                 //Esto aún no sé como hacerle
-                /*if (canasta[i] = nombre)
+                /*if (inventario.productosCarta[i] = ???)
                 {
-                    id = i;
+                    id = ???;
+                    //id = i;
                 }*/
             }
             return id;

@@ -16,7 +16,7 @@ namespace Taller2
         }
 
 
-        public void AgregarProductos()
+        /*public void AgregarProductos()
         {
             for (int i = 0; i < productosCarta.Length; i++)
             {
@@ -45,7 +45,7 @@ namespace Taller2
                 productosCarta[i] = new Producto();
 
             }
-        }
+        }*/
         public void Restar(int id)
         {
 
