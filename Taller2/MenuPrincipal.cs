@@ -72,9 +72,18 @@ namespace Taller2
                             }
                             Console.WriteLine("Opción inválida"); break;
                         }catch (Exception) { Console.WriteLine("Id inválido"); break; } //El buscador no sirve
-                case 4: Program.listadoMesas[idMesa].AgregarProducto(idMesa);  Console.WriteLine("Presione cualquier tecla cuando haya terminado de revisar la carta");
-                    Console.Write("- - > "); break; //Maso y el id no se está guardando
-                case 5: //mesa.EditarProducto(); break;
+                case 4: Program.listadoMesas[idMesa].AgregarProducto(idMesa); Program.listadoMesas[idMesa].ImprimirPedido(); Console.WriteLine("Presione tecla e para salir");Console.WriteLine("- - > "); if (Console.ReadLine() == "e") { break; } else { Console.WriteLine("Esto fue lo que se ejecutó");break; } //Maso y el id no se está guardando
+                case 5:
+                    bool rectificador=false;    
+                    do
+                    {
+                        Console.WriteLine("Ingrese el id de la mesa, recuerde que es un número del 1 al 5");
+                        rectificador = int.TryParse(Console.ReadLine(), out idMesa);
+                    } while (!rectificador && idMesa > 0 && idMesa < 6);
+                    Program.listadoMesas[idMesa - 1].EditarProducto(); Program.listadoMesas[idMesa-1].ImprimirPedido(); Console.WriteLine("Presione tecla e para salir"); Console.WriteLine("- - > "); if (Console.ReadLine() == "e") { break; } else { Console.WriteLine("Esto fue lo que se ejecutó"); break; }
+
+
+                    break;
                 case 6:  break;
                 case 7: /*Enviar a Clase*/ break;
                 case 8: System.Environment.Exit(0); break;
