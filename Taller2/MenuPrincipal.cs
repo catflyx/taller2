@@ -47,16 +47,21 @@ namespace Taller2
             Console.Write("- - > "); opcion = Convert.ToInt32(Console.ReadLine());
             switch (opcion)
             {
-                case 1: idMesa =mesa.Elegir()-1; break; //El id no se está guardando
+                case 1: idMesa = mesa.Elegir()-1; break; //Listo
                 case 2: Carta(); break; //Listo
-                case 3: 
+                case 3: //Listo
+                    Console.Clear();
                     Console.WriteLine("Ingrese el id del producto que desea cambiar");
+                    Console.WriteLine(); Console.WriteLine();
+                    Console.Write("- - > ");
                     try { int.TryParse(Console.ReadLine(), out int idAnt);
-                        Console.WriteLine("Ingrese 1 si desea editar el precio de producto; ingrese 2 si desea cambiarlo por otro producto");
-                        string op = Console.ReadLine();
+                        Console.WriteLine(); Console.WriteLine("Ingrese 1 si desea editar el precio de producto; ingrese 2 si desea cambiarlo por otro producto");
+                        Console.WriteLine(); Console.WriteLine();
+                        Console.Write("- - > "); string op = Console.ReadLine();
                         if (op == "1")
                         {
-                            Console.WriteLine("Ingrese el nuevo precio");
+                            Console.WriteLine(); Console.WriteLine("Ingrese el nuevo precio"); Console.WriteLine(); Console.WriteLine();
+                            Console.Write("- - > ");
                             try
                             {
                                 int.TryParse(Console.ReadLine(), out int nuevoPrecio);
@@ -66,24 +71,36 @@ namespace Taller2
                             catch (Exception) { Console.WriteLine("Precio inválido"); break; } }
                             if (op == "2")
                             {
-                                Console.WriteLine("Ingrese el nuevo nombre");try{ string nuevoNombre = Console.ReadLine(); Program.productosCarta[idAnt].Nombre = nuevoNombre; } catch (NullReferenceException) { Console.WriteLine("Nombre inválido");break; } 
-                                Console.WriteLine("Ingrese el nuevo precio"); try { int.TryParse(Console.ReadLine(), out int nuevoValor); Program.productosCarta[idAnt].Precio = nuevoValor; } catch (Exception) { Console.WriteLine("Precio inválido"); break; }
-                                Console.WriteLine("Ingrese la nueva cantidad"); try { int.TryParse(Console.ReadLine(), out int nuevaCantidad); Program.productosCarta[idAnt].Cantidad = nuevaCantidad; } catch (Exception) { Console.WriteLine("Cantidad inálida"); break; }
+                                Console.WriteLine(); Console.WriteLine("Ingrese el nuevo nombre"); Console.WriteLine(); Console.WriteLine();
+                            Console.Write("- - > "); try { string nuevoNombre = Console.ReadLine(); Program.productosCarta[idAnt].Nombre = nuevoNombre; } catch (NullReferenceException) { Console.WriteLine("Nombre inválido");break; }
+
+                                Console.WriteLine(); Console.WriteLine("Ingrese el nuevo precio"); Console.WriteLine(); Console.WriteLine();
+                            Console.Write("- - > "); try { int.TryParse(Console.ReadLine(), out int nuevoValor); Program.productosCarta[idAnt].Precio = nuevoValor; } catch (Exception) { Console.WriteLine("Precio inválido"); break; }
+
+                                Console.WriteLine(); Console.WriteLine("Ingrese la nueva cantidad"); Console.WriteLine(); Console.WriteLine();
+                            Console.Write("- - > "); try { int.TryParse(Console.ReadLine(), out int nuevaCantidad); Program.productosCarta[idAnt].Cantidad = nuevaCantidad; } catch (Exception) { Console.WriteLine("Cantidad inálida"); break; }
+
                             }
                             Console.WriteLine("Opción inválida"); break;
-                        }catch (Exception) { Console.WriteLine("Id inválido"); break; } //El buscador no sirve
-                case 4: Program.listadoMesas[idMesa].AgregarProducto(idMesa); Program.listadoMesas[idMesa].ImprimirPedido(); Console.WriteLine("Presione tecla e para salir");Console.WriteLine("- - > "); if (Console.ReadLine() == "e") { break; } else { Console.WriteLine("Esto fue lo que se ejecutó");break; } //Maso y el id no se está guardando
-                case 5:
-                    bool rectificador=false;    
+                        }catch (Exception) { Console.WriteLine("Id inválido"); break; }
+
+                case 4: Program.listadoMesas[idMesa].AgregarProducto(idMesa); Console.WriteLine(); //Listo
+                    Program.listadoMesas[idMesa].ImprimirPedido(); Console.WriteLine();
+                    Console.WriteLine("Presione cualquier tecla para salir");Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
+                    /*if (Console.ReadLine() == "e") { break; } else { Console.WriteLine("Esto fue lo que se ejecutó");break; }*/
+                
+                case 5: //Listo
+                    bool rectificador=false; Console.Clear();
                     do
                     {
-                        Console.WriteLine("Ingrese el id de la mesa, recuerde que es un número del 1 al 5");
-                        rectificador = int.TryParse(Console.ReadLine(), out idMesa);
+                        Console.WriteLine("Ingrese el id de la mesa, recuerde que es un número del 1 al 5"); Console.WriteLine(); Console.WriteLine();
+                        Console.Write("- - > "); rectificador = int.TryParse(Console.ReadLine(), out idMesa);
                     } while (!rectificador && idMesa > 0 && idMesa < 6);
-                    Program.listadoMesas[idMesa - 1].EditarProducto(); Program.listadoMesas[idMesa-1].ImprimirPedido(); Console.WriteLine("Presione tecla e para salir"); Console.WriteLine("- - > "); if (Console.ReadLine() == "e") { break; } else { Console.WriteLine("Esto fue lo que se ejecutó"); break; }
+                    Program.listadoMesas[idMesa-1].ImprimirPedido(); Program.listadoMesas[idMesa - 1].EditarProducto(); Console.WriteLine();
+                    Console.WriteLine("Nuevo pedido:"); Program.listadoMesas[idMesa-1].ImprimirPedido();
+                    Console.WriteLine("Presione cualquier tecla para salir"); Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
+                    /*if (Console.ReadLine() == "e") { break; } else { Console.WriteLine("Esto fue lo que se ejecutó"); break; }*/
 
-
-                    break;
                 case 6:  break;
                 case 7: /*Enviar a Clase*/ break;
                 case 8: System.Environment.Exit(0); break;
@@ -98,7 +115,7 @@ namespace Taller2
             ui.ImprimirLinea(27, " _"); Console.WriteLine();
             for (int i = 0; i < Program.productosCarta.GetLength(0); i++)
             {
-                ui.ImprimirColumna(1, "l"); Console.Write("          ~ "); Console.Write(i); Console.Write(". ");Console.Write( Program.productosCarta[i].Nombre);
+                ui.ImprimirColumna(1, "l"); Console.Write("          ~ "); Console.Write(i); Console.Write(". ");Console.Write( Program.productosCarta[i].Nombre + "  -  " + Program.productosCarta[i].Precio);
                 Console.WriteLine();
             }
             ui.ImprimirLinea(27, " _"); Console.WriteLine(); Console.WriteLine();

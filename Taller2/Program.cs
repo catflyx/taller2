@@ -62,9 +62,6 @@ namespace Taller2
             {
                 listadoMesas[i]=new Mesa(i+1);
             }
-            
-           
-
 
            // Inventario inventario= new Inventario();
            /// inventario.GuardarCarta(productosCarta);

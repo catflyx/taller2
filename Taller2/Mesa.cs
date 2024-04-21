@@ -54,13 +54,12 @@ namespace Taller2
             int contador = 0; // Inicializamos el contador de productos
 
             Console.Clear();
-            Console.WriteLine("- - - - - | MESA " + (mesa + 1) + " | - - - - -");
+            Console.WriteLine("- - - - - | MESA " + (mesa + 1) + " | - - - - -"); Console.WriteLine();
             // Solicitar la cantidad de productos que se van a agregar
-
-
             do
             {
-                Console.WriteLine("Ingrese la cantidad de productos que desea agregar a la mesa");
+                Console.WriteLine("Ingrese la cantidad de productos que desea agregar a la mesa"); Console.WriteLine(); Console.WriteLine();
+                Console.Write("- - > ");
 
             } while (!int.TryParse(Console.ReadLine(), out cant));
 
@@ -68,12 +67,14 @@ namespace Taller2
             {
                 do
                 {
-                    Console.WriteLine($"Ingrese el ID del producto" + (i + 1));
+                    Console.WriteLine(); Console.WriteLine($"Ingrese el ID del producto " + (i + 1)); Console.WriteLine(); Console.WriteLine();
+                    Console.Write("- - > ");
 
                 } while (!int.TryParse(Console.ReadLine(), out idP));
                 do
                 {
-                    Console.WriteLine("Ingrese la cantidad del producto");
+                    Console.WriteLine(); Console.WriteLine("¿Cuántos pedidos de este producto quiere?"); Console.WriteLine(); Console.WriteLine();
+                    Console.Write("- - > ");
 
                 } while (!int.TryParse(Console.ReadLine(), out prodC));
 
@@ -85,22 +86,15 @@ namespace Taller2
                 }
                 else
                 {
-                    Console.WriteLine("No se puede agregar más productos. Pedido completo.");
+                    Console.WriteLine("No se puede agregar más productos. Pedido completo."); Console.ReadKey();
                     break; // Salir del ciclo si el pedido está completo
-                }
-
-
+                } Console.WriteLine();
             }
 
         }
 
-
-
-
-
-
         public void ImprimirPedido()
-        {
+        { Console.WriteLine();
             if (Pedido != null)
             {
                 foreach (var p in Pedido)
@@ -111,13 +105,13 @@ namespace Taller2
                         {
                             Console.Write(item + " ");
                         }
-                        Console.WriteLine();
+                        Console.WriteLine(); Console.WriteLine("------¬");
                     }
 
                 }
 
             }
-            else { Console.WriteLine("Pedido no encontrado"); }
+            else { Console.WriteLine("Pedido no encontrado"); } Console.WriteLine();
         }
         public void EditarProducto()
         {
@@ -128,26 +122,24 @@ namespace Taller2
             int cantidadNueva;
             bool rect=false;
 
-           
-
                 if (Pedido != null )
                 {
                 do
                 {
-                    Console.WriteLine("Ingrese el id del producto que desea cambiar, recuerde que es un número del 0 al 15");
-                    rect = int.TryParse(Console.ReadLine(), out numP);
+                    Console.WriteLine(); Console.WriteLine("Ingrese el id del producto que desea cambiar, recuerde que es un número del 0 al 15"); Console.WriteLine(); Console.WriteLine();
+                    Console.Write("- - > "); rect = int.TryParse(Console.ReadLine(), out numP);
                 } while (!rect && numP > 0 && numP < 16);
 
                 do
                 {
-                    Console.WriteLine("Ingrese el id del producto que desea llevar, recuerde que es un número del 0 al 15");
-                    rectificador = int.TryParse(Console.ReadLine(), out numPNuevo);
+                    Console.WriteLine(); Console.WriteLine("Ingrese el id del producto con el que desea reemplazar el anterior, recuerde que es un número del 0 al 15"); Console.WriteLine(); Console.WriteLine();
+                    Console.Write("- - > "); rectificador = int.TryParse(Console.ReadLine(), out numPNuevo);
                 } while (!rect && numPNuevo > 0 && numPNuevo < 16);
 
                 do
                 {
-                    Console.WriteLine("Ingrese la cantidad");
-                    rectificador = int.TryParse(Console.ReadLine(), out cantidadNueva);
+                    Console.WriteLine(); Console.WriteLine("Ingrese la cantidad"); Console.WriteLine(); Console.WriteLine();
+                    Console.Write("- - > "); rectificador = int.TryParse(Console.ReadLine(), out cantidadNueva);
                 } while (!rect);
 
                 rect = false;
@@ -162,7 +154,7 @@ namespace Taller2
                             {
                                 Pedido[j][0] = numPNuevo;
                                 Pedido[j][1] = cantidadNueva;
-                                Console.WriteLine("Pedido actualizado");
+                                Console.WriteLine(); Console.WriteLine("* ~ Pedido actualizado ~ *");
                                 rect = true;
                                 break;
                             }
@@ -170,20 +162,13 @@ namespace Taller2
                         else { continue; }
                         }
 
-                        if (!rect) { Console.WriteLine("Producto no encontrado en su pedido"); }
+                        if (!rect) { Console.WriteLine(); Console.WriteLine(" XX Producto no encontrado en su pedido XX"); }
                         
-                    } catch (Exception ex) { Console.WriteLine("Ya se revisó todo su pedido"); }
+                    } catch (Exception ex) { Console.WriteLine(); Console.WriteLine("Ya se revisó todo su pedido"); }
 
                 }
             
         }
-
-
-
-           
-
-
-
 
         }
     }
