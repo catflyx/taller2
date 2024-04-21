@@ -14,13 +14,14 @@ namespace Taller2
         private float precio; private int cantidad; private string nombre;
         
         public int Ident { get => id; set => id = value; }
+
         public string Nombre { get => nombre; set => nombre = value; }
         
         public float Precio { get => precio; set => precio = value; }
         
         public int Cantidad { get => cantidad; set => cantidad = value; }
 
-        public Producto(string nombre, float precio, int cantidad)
+        public Producto(string nombre, float precio, int cantidad, int id)
         {
             this.nombre = nombre;
             this.cantidad = cantidad;

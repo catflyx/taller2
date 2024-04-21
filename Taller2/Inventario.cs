@@ -8,44 +8,20 @@ namespace Taller2
 {
     internal class Inventario
     {
-        public Producto[] productosCarta = new Producto[16];
+        private Producto[] productosCarta = new Producto[16];
+        
+        internal Producto[] ProductosCarta { get => productosCarta; set => productosCarta = value; }
 
-        public void GuardarCarta(Producto[] productos)
-        {
-            productosCarta = productos;
+        public Inventario() { }
+
+        public Inventario(Producto[] inventarioInicial) {
+            this.ProductosCarta = inventarioInicial;
         }
 
-
-        /*public void AgregarProductos()
+        public void InicializarInventario(Producto[] productos)
         {
-            for (int i = 0; i < productosCarta.Length; i++)
-            {
-                int valor;
-                int cantidad = 0;
-                Console.WriteLine("Ingrese el nombre del producto");
-                string name = Console.ReadLine();
-
-                bool cant;
-                bool price;
-
-
-                do
-                {
-                    Console.WriteLine($"Ingrese un número entero positivo como precio del producto");
-                    cant = int.TryParse(Console.ReadLine(), out valor);
-
-                } while (!cant);
-
-                do
-                {
-                    Console.WriteLine($"Ingrese un número entero positivo como la cantidad del producto en inventario");
-                    price = int.TryParse(Console.ReadLine(), out cantidad);
-                } while (!price);
-
-                productosCarta[i] = new Producto();
-
-            }
-        }*/
+            ProductosCarta = productos;
+        }  
         public void Restar(int id)
         {
 
