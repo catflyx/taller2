@@ -113,6 +113,25 @@ namespace Taller2
             }
             else { Console.WriteLine("Pedido no encontrado"); } Console.WriteLine();
         }
+
+        public float FacturaPedido(float subtotal) // hay que hacer que ponga la cantidad, luego el nombre y al final el precio*cantidad
+        {
+            Console.WriteLine();
+            if (Pedido != null)
+            { 
+
+            }
+            else { Console.WriteLine("Pedido no encontrado"); }
+            Console.WriteLine();
+
+            return subtotal; //El indice que sea el precio y luego el resultado precio*cantidad se le suma al subtotal (subtotal += precio*cantidad)
+        }
+
+
+
+
+
+
         public void EditarProducto()
         {
             

@@ -10,7 +10,7 @@ namespace Taller2
     {
         private string nomProducto;
 
-        public Mesa mesa = new Mesa(); int Mesaid = 0;
+        public Mesa mesa = new Mesa();
 
         
 
@@ -101,7 +101,7 @@ namespace Taller2
                     Console.WriteLine("Presione cualquier tecla para salir"); Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
                     /*if (Console.ReadLine() == "e") { break; } else { Console.WriteLine("Esto fue lo que se ejecutó"); break; }*/
 
-                case 6:  break;
+                case 6: factura.Imprimir(idMesa); break;
                 case 7: /*Enviar a Clase*/ break;
                 case 8: System.Environment.Exit(0); break;
                 default: Console.WriteLine("Opción no existente, vuelva a ingresar una opción."); Console.ReadKey(); ImprimirMenu(); break;

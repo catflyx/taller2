@@ -8,16 +8,27 @@ namespace Taller2
 {
     internal class Factura
     {
-        private float IVA = 19f; private float propina; private DateTime fecha; 
+        UI ui = new UI(); Mesa mesa = new Mesa();
 
-        public void Imprimir()
+        private float IVA = 19f; private float subtotal; private DateTime fecha; 
+
+        public void Imprimir(int mesa)
         {
-
+            mesa = mesa+1;
+            Console.Clear(); ui.Factura(); Console.WriteLine(); Console.WriteLine();
+            Console.WriteLine("Fecha: " + fecha);
+            Console.WriteLine("Mesa: Mesa " + mesa);
+            Console.WriteLine("Atendido por una consola");
+            ui.ImprimirLinea(40, "-"); Console.WriteLine("Uds  Descripción                Total"); ui.ImprimirLinea(40, "-");
+            Program.listadoMesas[mesa - 1].FacturaPedido(subtotal); ui.ImprimirLinea(10, "_ . "); Console.WriteLine();
+            Console.WriteLine("                                 $ " + subtotal);
+            Console.WriteLine("                              IVA: " + IVA + "%"); Console.WriteLine();
+            Console.WriteLine("Precio total:                      " + (subtotal/1.19)); Console.WriteLine(); ui.ImprimirLinea(40,"-"); Console.WriteLine();
+            Console.WriteLine("                 Katheryn -                 ");
+            Console.WriteLine("              Simara Villasmil              ");
+            Console.WriteLine("               Dana Gutierrez               "); Console.WriteLine(); Console.ReadKey();
         }
 
-        public void Pagar()
-        {
-
-        }
+        
     }
 }
