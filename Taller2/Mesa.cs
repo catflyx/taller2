@@ -14,13 +14,6 @@ namespace Taller2
         private int[][] pedido = new int[10][];
 
 
-
-        private int idProducto;
-
-        private int cantidad;
-
-        private int contador = 0;
-
         public Mesa(int identificador)
         {
             this.id = identificador;

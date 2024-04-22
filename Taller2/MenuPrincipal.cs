@@ -12,9 +12,6 @@ namespace Taller2
 
         public Mesa mesa = new Mesa();
 
-        
-
-        Factura factura = new Factura();
 
         private Factura[] facturas = new Factura[10];
 
@@ -26,10 +23,7 @@ namespace Taller2
 
         internal Factura[] Facturas { get => facturas; set => facturas = value; }
 
-        public void EditarMenu()
-        {
-
-        }
+       
         public void ImprimirMenu()
         {
             int opcion = 0;
