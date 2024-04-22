@@ -119,7 +119,7 @@ namespace Taller2
                 case 7: // Datos a guardar en el archivo CSV
                     do
                     {
-                        Console.WriteLine("Ingrese el id de la factura, recuerde que es un número del 0 al 9"); Console.WriteLine(); Console.WriteLine();
+                        Console.Clear(); Console.WriteLine("Ingrese el id de la factura, recuerde que es un número del 0 al 9"); Console.WriteLine(); Console.WriteLine();
                         Console.Write("- - > "); rect = int.TryParse(Console.ReadLine(), out idFactura);
                     } while (!rect && idFactura >= 0 && idMesa <= 9);
 
@@ -157,16 +157,13 @@ namespace Taller2
                     Console.WriteLine("Datos guardados en el archivo CSV: " + rutaArchivo);
                     string directorioActual = Directory.GetCurrentDirectory();
 
-                    Console.WriteLine("Directorio actual: " + directorioActual);
+                    Console.WriteLine("Directorio actual: " + directorioActual); break;
 
-
-
-                    break;
                 case 8:
                     rect = false;
                     do
                     {
-                        Console.WriteLine("Ingrese el id de la factura, recuerde que es un número del 0 al 9"); Console.WriteLine(); Console.WriteLine();
+                        Console.Clear(); Console.WriteLine("Ingrese el id de la factura, recuerde que es un número del 0 al 9"); Console.WriteLine(); Console.WriteLine();
                         Console.Write("- - > "); rect = int.TryParse(Console.ReadLine(), out idFactura);
                     } while (!rect && idFactura >= 0 && idMesa <= 9);// Ruta del archivo CSV
 
@@ -203,7 +200,7 @@ namespace Taller2
 
                 case 9:
                     rect = false;
-                    int idProd;
+                    int idProd; Console.Clear();
                     do
                     {
                         Console.WriteLine("Ingrese el id del producto que desea buscar, recuerde que es un número del 0 al 15"); Console.WriteLine(); Console.WriteLine();
@@ -211,10 +208,10 @@ namespace Taller2
                     } while (!rect && idProd >= 0 && idProd <= 15);
 
                     Console.WriteLine($"Nombre: "+Program.productosCarta[idProd].Nombre); Console.WriteLine($"Precio: " + Program.productosCarta[idProd].Precio);
-                    Console.WriteLine("Presione cualquier tecla para salir"); Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
+                    Console.WriteLine(); Console.WriteLine("Presione cualquier tecla para salir"); Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
 
                 case 10: System.Environment.Exit(0); break;
-                default: Console.WriteLine("Opción no existente, vuelva a ingresar una opción."); Console.ReadKey(); ImprimirMenu(); break;
+                default: Console.WriteLine(); Console.WriteLine("Opción no existente, vuelva a ingresar una opción."); Console.ReadKey(); ImprimirMenu(); break;
             }
         }
 

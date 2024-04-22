@@ -33,6 +33,7 @@ namespace Taller2
         public void Menu()
         {
             //Imágen de esas echas con texto
+            Console.Clear();
             Console.WriteLine(" __  __  _____  _____  __ __");
             Console.WriteLine("/  \\/  \\/   __\\/  _  \\/  |  \\");
             Console.WriteLine("|  \\/  ||   __||  |  ||  |  |");
@@ -41,6 +42,7 @@ namespace Taller2
 
         public void Carta()
         {
+            Console.Clear();
             Console.WriteLine(" _____  _____  _____  ____  _____");
             Console.WriteLine("/     \\/  _  \\/  _  \\/    \\/  _  \\");
             Console.WriteLine("|  |--||  _  ||  _  <\\-  -/|  _  |");
@@ -50,6 +52,7 @@ namespace Taller2
 
         public void Mesa()
         {
+            Console.Clear();
             Console.WriteLine(" __  __  _____  _____  _____ ");
             Console.WriteLine("/  \\/  \\/   __\\/  ___>/  _  \\");
             Console.WriteLine("|  \\/  ||   __||___  ||  _  |");
@@ -59,6 +62,7 @@ namespace Taller2
 
         public void EditarCarta()
         {
+            Console.Clear();
             Console.WriteLine(" _____  _____  ___  ____  _____  _____    _____  _____  _____  ____  _____ ");
             Console.WriteLine("/   __\\|  _  \\/___\\/    \\/  _  \\/  _  \\  /     \\/  _  \\/  _  \\/    \\/  _  \\");
             Console.WriteLine("|   __||  |  ||   |\\-  -/|  _  ||  _  <  |  |--||  _  ||  _  <\\-  -/|  _  |");
@@ -67,6 +71,7 @@ namespace Taller2
 
         public void AsignarProducto()
         {
+            Console.Clear();
             Console.WriteLine(" _____  _____  ___  _____  _____  _____  _____    _____  _____  _____  _____  __ __  _____  ____  _____ ");
             Console.WriteLine("/  _  \\/  ___>/___\\/   __\\/  _  \\/  _  \\/  _  \\  /  _  \\/  _  \\/  _  \\|  _  \\/  |  \\/     \\/    \\/  _  \\");
             Console.WriteLine("|  _  ||___  ||   ||  |_ ||  |  ||  _  ||  _  <  |   __/|  _  <|  |  ||  |  ||  |  ||  |--|\\-  -/|  |  |");
@@ -75,6 +80,7 @@ namespace Taller2
 
         public void CambiarProducto()
         {
+            Console.Clear();
             Console.WriteLine(" _____  _____  __  __  _____  ___  _____  _____    _____  _____  _____  _____  __ __  _____  ____  _____ ");
             Console.WriteLine("/     \\/  _  \\/  \\/  \\/  _  \\/___\\/  _  \\/  _  \\  /  _  \\/  _  \\/  _  \\|  _  \\/  |  \\/     \\/    \\/  _  \\");
             Console.WriteLine("|  |--||  _  ||  \\/  ||  _  <|   ||  _  ||  _  <  |   __/|  _  <|  |  ||  |  ||  |  ||  |--|\\-  -/|  |  |");
@@ -83,6 +89,7 @@ namespace Taller2
 
         public void Factura()
         {
+            Console.Clear();
             Console.WriteLine(" _____  _____  _____  ____  __ __  _____  _____ ");
             Console.WriteLine("/   __\\/  _  \\/     \\/    \\/  |  \\/  _  \\/  _  \\");
             Console.WriteLine("|   __||  _  ||  |--|\\-  -/|  |  ||  _  <|  _  |");

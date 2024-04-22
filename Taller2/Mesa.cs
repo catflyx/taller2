@@ -9,6 +9,8 @@ namespace Taller2
 {
     internal class Mesa
     {
+        UI ui = new UI();
+
         private int id;
 
         private int[][] pedido = new int[10][];
@@ -27,10 +29,10 @@ namespace Taller2
 
         public int Elegir()
         {
-            int mesa;
+            int mesa; 
             MenuPrincipal principal = new MenuPrincipal();
 
-            Console.Clear();
+            Console.Clear(); ui.Mesa(); ui.ImprimirLinea(27, " _"); Console.WriteLine();
             Console.WriteLine("Elija una mesa. Ingrese un número del 1 al 5");
             Console.WriteLine();
 

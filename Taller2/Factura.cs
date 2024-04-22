@@ -26,7 +26,8 @@ namespace Taller2
             ui.ImprimirLinea(40, "-"); Console.WriteLine("Uds          Descripción          Total"); ui.ImprimirLinea(40, "-");
             ImprimirInfo(); ui.ImprimirLinea(10, "_ . "); Console.WriteLine();
             Console.WriteLine("                                 $ " + Subtotal);
-            Console.WriteLine("                              IVA: " + IVA + "%"); Console.WriteLine();
+            Console.WriteLine("                              IVA: " + IVA + "%"); 
+            Console.WriteLine("                          IVA 19%: " + 1.19); Console.WriteLine();
             Console.WriteLine("Precio total:                      " + (Subtotal/1.19)); Console.WriteLine(); ui.ImprimirLinea(40,"-"); Console.WriteLine();
             Console.WriteLine("                 Katheryn -                 ");
             Console.WriteLine("              Simara Villasmil              ");
@@ -55,7 +56,7 @@ namespace Taller2
                     Console.WriteLine();
                 }
             }
-            else { Console.WriteLine("No se pudo generar la factura"); }
+            else { Console.WriteLine(); Console.WriteLine("XX No se pudo generar la factura XX"); }
         }
         
     }
