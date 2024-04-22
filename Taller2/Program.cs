@@ -6,6 +6,7 @@ namespace Taller2
     {
         public static Producto[] productosCarta = new Producto[16];
         public static Mesa[] listadoMesas = new Mesa[5];
+        public static Factura[] facturas = new Factura[10];
 
        
         public static void Main(string[] args)
@@ -27,7 +28,7 @@ namespace Taller2
             productosCarta[14] = new Producto("Cafe", 4500, 20,14);
             productosCarta[15] = new Producto("Aromatica", 4500, 10,15);
 
-            Inventario inventario1 = new Inventario(productosCarta);
+            
             /*
             // Datos a guardar en el archivo CSV
             string[][] datosMenu = new string[][]
@@ -62,9 +63,13 @@ namespace Taller2
             {
                 listadoMesas[i]=new Mesa(i+1);
             }
+            for (int j = 0; j < facturas.Length; j++)
+            {
+                facturas[j] = new Factura();
+            }
 
-           // Inventario inventario= new Inventario();
-           /// inventario.GuardarCarta(productosCarta);
+            // Inventario inventario= new Inventario();
+            /// inventario.GuardarCarta(productosCarta);
 
             MenuPrincipal principal = new MenuPrincipal();
             //principal.carta = inventario;

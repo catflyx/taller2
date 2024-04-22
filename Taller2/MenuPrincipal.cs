@@ -16,13 +16,15 @@ namespace Taller2
 
         Factura factura = new Factura();
 
-        public Inventario carta = new Inventario();
+        private Factura[] facturas = new Factura[10];
 
         private int idMesa;
         
         
 
         UI ui = new UI();
+
+        internal Factura[] Facturas { get => facturas; set => facturas = value; }
 
         public void EditarMenu()
         {
@@ -99,10 +101,71 @@ namespace Taller2
                     Program.listadoMesas[idMesa-1].ImprimirPedido(); Program.listadoMesas[idMesa - 1].EditarProducto(); Console.WriteLine();
                     Console.WriteLine("Nuevo pedido:"); Program.listadoMesas[idMesa-1].ImprimirPedido();
                     Console.WriteLine("Presione cualquier tecla para salir"); Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
-                    /*if (Console.ReadLine() == "e") { break; } else { Console.WriteLine("Esto fue lo que se ejecutó"); break; }*/
+                    
 
-                case 6: factura.Imprimir(idMesa); break;
-                case 7: /*Enviar a Clase*/ break;
+                case 6:
+                    bool rect = false; Console.Clear();
+                    int idFactura = 0;
+                    do
+                    {
+                        Console.WriteLine("Ingrese el id de la mesa, recuerde que es un número del 1 al 5"); Console.WriteLine(); Console.WriteLine();
+                        Console.Write("- - > "); rect = int.TryParse(Console.ReadLine(), out idMesa);
+                    } while (!rect && idMesa > 0 && idMesa < 6);
+                    rect = false;
+                    do
+                    {
+                        Console.WriteLine("Ingrese el id de la factura, recuerde que es un número del 0 al 9"); Console.WriteLine(); Console.WriteLine();
+                        Console.Write("- - > "); rect = int.TryParse(Console.ReadLine(), out idFactura);
+                    } while (!rect && idFactura >= 0 && idMesa <= 9);
+
+                    Program.listadoMesas[idMesa - 1].GenerarFactura(idFactura, Program.facturas); Program.facturas[0].Imprimir(idMesa-1);
+                    Console.WriteLine("Presione cualquier tecla para salir"); Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
+                case 7: // Datos a guardar en el archivo CSV
+                    do
+                    {
+                        Console.WriteLine("Ingrese el id de la factura, recuerde que es un número del 0 al 9"); Console.WriteLine(); Console.WriteLine();
+                        Console.Write("- - > "); rect = int.TryParse(Console.ReadLine(), out idFactura);
+                    } while (!rect && idFactura >= 0 && idMesa <= 9);
+
+
+                    // Ruta del archivo CSV
+                    string rutaArchivo = $"factura{idFactura}.csv";
+
+                    // Crear y escribir en el archivo CSV
+                    using (StreamWriter writer = new StreamWriter(rutaArchivo))
+                    {
+                        if (Program.facturas[idFactura] != null)
+                        {
+                            if (Program.facturas[idFactura].Informacion != null)
+                            {
+                                try
+                                {
+                                    string[] cadenaInicial = new string[] { "Cantidad", "Descripcion", "Precio" };
+                                    writer.WriteLine(string.Join(";", cadenaInicial));
+                                    foreach (string[] fila in Program.facturas[idFactura].Informacion)
+                                    {
+                                        if (fila != null)
+                                        {
+                                            writer.WriteLine(string.Join(";", fila));
+                                        }
+                                        else { continue; }
+                                    }
+                                }
+                                catch (NullReferenceException) { Console.WriteLine("Toda la información ha sido leída "); }
+                            }
+                            else { Console.WriteLine("Factura sin información"); }
+                        }
+                        else { Console.WriteLine("Factura no encontrada"); }
+                    }
+
+                    Console.WriteLine("Datos guardados en el archivo CSV: " + rutaArchivo);
+                    string directorioActual = Directory.GetCurrentDirectory();
+
+                    Console.WriteLine("Directorio actual: " + directorioActual);
+
+
+
+                    break;
                 case 8: System.Environment.Exit(0); break;
                 default: Console.WriteLine("Opción no existente, vuelva a ingresar una opción."); Console.ReadKey(); ImprimirMenu(); break;
             }

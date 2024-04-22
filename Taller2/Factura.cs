@@ -10,7 +10,11 @@ namespace Taller2
     {
         UI ui = new UI(); Mesa mesa = new Mesa();
 
-        private float IVA = 19f; private float subtotal; private DateTime fecha; 
+        private float IVA = 19f; private int subtotal; private DateTime fecha;
+        private string[][] informacion = new string[10][];
+
+        public string[][] Informacion { get => informacion; set => informacion = value; }
+        public int Subtotal { get => subtotal; set => subtotal = value; }
 
         public void Imprimir(int mesa)
         {
@@ -19,16 +23,40 @@ namespace Taller2
             Console.WriteLine("Fecha: " + fecha);
             Console.WriteLine("Mesa: Mesa " + mesa);
             Console.WriteLine("Atendido por una consola");
-            ui.ImprimirLinea(40, "-"); Console.WriteLine("Uds  Descripción                Total"); ui.ImprimirLinea(40, "-");
-            Program.listadoMesas[mesa - 1].FacturaPedido(subtotal); ui.ImprimirLinea(10, "_ . "); Console.WriteLine();
-            Console.WriteLine("                                 $ " + subtotal);
+            ui.ImprimirLinea(40, "-"); Console.WriteLine("Uds          Descripción          Total"); ui.ImprimirLinea(40, "-");
+            ImprimirInfo(); ui.ImprimirLinea(10, "_ . "); Console.WriteLine();
+            Console.WriteLine("                                 $ " + Subtotal);
             Console.WriteLine("                              IVA: " + IVA + "%"); Console.WriteLine();
-            Console.WriteLine("Precio total:                      " + (subtotal/1.19)); Console.WriteLine(); ui.ImprimirLinea(40,"-"); Console.WriteLine();
+            Console.WriteLine("Precio total:                      " + (Subtotal/1.19)); Console.WriteLine(); ui.ImprimirLinea(40,"-"); Console.WriteLine();
             Console.WriteLine("                 Katheryn -                 ");
             Console.WriteLine("              Simara Villasmil              ");
             Console.WriteLine("               Dana Gutierrez               "); Console.WriteLine(); Console.ReadKey();
         }
 
+        public void ImprimirInfo() {
+            if (Informacion != null)
+            {
+                for (int i = 0; i < Informacion.Length; i++)
+                {
+                    // Imprimimos cada subarreglo
+                    if (Informacion[i] != null)
+                    {
+                        for (int j = 0; j < Informacion[i].Length; j++)
+                        {
+                            Console.Write(Informacion[i][j]);
+                            if (j < Informacion[i].Length - 1)
+                            {
+                                Console.Write("          ");
+                            }
+                            
+                        }
+                    }
+                    else { continue; }
+                    Console.WriteLine();
+                }
+            }
+            else { Console.WriteLine("No se pudo generar la factura"); }
+        }
         
     }
 }

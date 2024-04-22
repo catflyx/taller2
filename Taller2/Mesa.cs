@@ -88,13 +88,15 @@ namespace Taller2
                 {
                     Console.WriteLine("No se puede agregar más productos. Pedido completo."); Console.ReadKey();
                     break; // Salir del ciclo si el pedido está completo
-                } Console.WriteLine();
+                }
+                Console.WriteLine();
             }
 
         }
 
         public void ImprimirPedido()
-        { Console.WriteLine();
+        {
+            Console.WriteLine();
             if (Pedido != null)
             {
                 foreach (var p in Pedido)
@@ -111,21 +113,41 @@ namespace Taller2
                 }
 
             }
-            else { Console.WriteLine("Pedido no encontrado"); } Console.WriteLine();
-        }
-
-        public float FacturaPedido(float subtotal) // hay que hacer que ponga la cantidad, luego el nombre y al final el precio*cantidad
-        {
-            Console.WriteLine();
-            if (Pedido != null)
-            { 
-
-            }
             else { Console.WriteLine("Pedido no encontrado"); }
             Console.WriteLine();
-
-            return subtotal; //El indice que sea el precio y luego el resultado precio*cantidad se le suma al subtotal (subtotal += precio*cantidad)
         }
+
+       
+
+        public void GenerarFactura(int idFactura, Factura[] facturas)
+        {
+            int contador = 0;
+            facturas[idFactura].Subtotal = 0;
+
+
+            if (idFactura >= 0 && idFactura < facturas.Length)
+            {
+                if (facturas[idFactura] != null)
+                {
+                    foreach (var p in Pedido)
+                    {
+                        if (p != null)
+                        {
+                            int precio = Program.productosCarta[p[0]].Precio * p[1];
+                            facturas[idFactura].Subtotal += precio;
+                            facturas[idFactura].Informacion[contador] = new string[] { p[1].ToString(), Program.productosCarta[p[0]].Nombre, precio.ToString() };
+                            contador++;
+                        }
+                        
+                    }
+
+                    
+
+                }
+
+            }
+        }
+
 
 
 
@@ -134,15 +156,15 @@ namespace Taller2
 
         public void EditarProducto()
         {
-            
+
             bool rectificador;
             int numP;
             int numPNuevo;
             int cantidadNueva;
-            bool rect=false;
+            bool rect = false;
 
-                if (Pedido != null )
-                {
+            if (Pedido != null)
+            {
                 do
                 {
                     Console.WriteLine(); Console.WriteLine("Ingrese el id del producto que desea cambiar, recuerde que es un número del 0 al 15"); Console.WriteLine(); Console.WriteLine();
@@ -164,9 +186,9 @@ namespace Taller2
                 rect = false;
 
                 try
+                {
+                    for (int j = 0; j < Pedido.Length; j++)
                     {
-                        for (int j = 0; j < Pedido.Length; j++)
-                        {
                         if (Pedido[j] != null)
                         {
                             if (Pedido[j][0] == numP)
@@ -179,32 +201,15 @@ namespace Taller2
                             }
                         }
                         else { continue; }
-                        }
+                    }
 
-                        if (!rect) { Console.WriteLine(); Console.WriteLine(" XX Producto no encontrado en su pedido XX"); }
-                        
-                    } catch (Exception ex) { Console.WriteLine(); Console.WriteLine("Ya se revisó todo su pedido"); }
+                    if (!rect) { Console.WriteLine(); Console.WriteLine(" XX Producto no encontrado en su pedido XX"); }
 
                 }
-            
-        }
+                catch (Exception ex) { Console.WriteLine(); Console.WriteLine("Ya se revisó todo su pedido"); }
+
+            }
 
         }
     }
-
-        
-
-        /* public int BuscarProducto(string nombre, int id)
-         {
-             for (int i = 0; i < inventario.productosCarta.GetLength(0); i++)
-             {
-                 //Esto aún no sé como hacerle
-                 /*if (inventario.productosCarta[i] = ???)
-                 {
-                     id = ???;
-                     //id = i;
-                 }
-             }
-             return id;
-         }*/
-    
+}
