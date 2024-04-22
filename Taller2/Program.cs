@@ -29,35 +29,7 @@ namespace Taller2
             productosCarta[15] = new Producto("Aromatica", 4500, 10,15);
 
             
-            /*
-            // Datos a guardar en el archivo CSV
-            string[][] datosMenu = new string[][]
-            {
-            new string[] { "Nombre", "precio" },
-            new string[] { "Crema de champinones", "21000" },
-            new string[] { "Patacon con carne", "24000" },
-            new string[] { "Porcion de platanitos", "7000" },
-            new string[] { "Lasana Bolognesa", "25000" },
-            new string[] { "Lomo de cerdo", "28500" }
-            } ;
-
-            // Ruta del archivo CSV
-            string rutaArchivo = "datosMenu.csv";
-
-            // Crear y escribir en el archivo CSV
-            using (StreamWriter writer = new StreamWriter(rutaArchivo))
-            {
-                foreach (string[] fila in datosMenu)
-                {
-                    writer.WriteLine(string.Join(",", fila));
-                }
-            }
-
-            Console.WriteLine("Datos guardados en el archivo CSV: " + rutaArchivo);
-            string directorioActual = Directory.GetCurrentDirectory();
-
-            Console.WriteLine("Directorio actual: " + directorioActual);
-            */
+           
 
             for (int i =0; i< listadoMesas.Length; i++)
             {
@@ -68,16 +40,15 @@ namespace Taller2
                 facturas[j] = new Factura();
             }
 
-            // Inventario inventario= new Inventario();
-            /// inventario.GuardarCarta(productosCarta);
-
             MenuPrincipal principal = new MenuPrincipal();
-            //principal.carta = inventario;
+            
             
             while (true)
             { 
                 principal.ImprimirMenu();
             }
+
+         
         }
     }
 }

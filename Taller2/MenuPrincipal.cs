@@ -43,7 +43,9 @@ namespace Taller2
             ui.ImprimirColumna(1, "|"); Console.Write("                5. Cambiar productos de la mesa        "); ui.ImprimirColumna(1, "|");
             ui.ImprimirColumna(1, "|"); Console.Write("                6. Imprimir factura                    "); ui.ImprimirColumna(1, "|");
             ui.ImprimirColumna(1, "|"); Console.Write("                7. Guardar factura                     "); ui.ImprimirColumna(1, "|");
-            ui.ImprimirColumna(1, "|"); Console.Write("                8. Salir                               "); ui.ImprimirColumna(1, "|");
+            ui.ImprimirColumna(1, "|"); Console.Write("                8. Leer factura                        "); ui.ImprimirColumna(1, "|");
+            ui.ImprimirColumna(1, "|"); Console.Write("                9. Buscar producto                     "); ui.ImprimirColumna(1, "|");
+            ui.ImprimirColumna(1, "|"); Console.Write("                10. Salir                              "); ui.ImprimirColumna(1, "|");
             ui.ImprimirColumna(1, "|"); Console.Write("                                                       "); ui.ImprimirColumna(1, "|");
             ui.ImprimirLinea(27, " _"); Console.WriteLine(); Console.WriteLine();
             Console.Write("- - > "); opcion = Convert.ToInt32(Console.ReadLine());
@@ -118,7 +120,7 @@ namespace Taller2
                         Console.Write("- - > "); rect = int.TryParse(Console.ReadLine(), out idFactura);
                     } while (!rect && idFactura >= 0 && idMesa <= 9);
 
-                    Program.listadoMesas[idMesa - 1].GenerarFactura(idFactura, Program.facturas); Program.facturas[0].Imprimir(idMesa-1);
+                    Program.listadoMesas[idMesa - 1].GenerarFactura(idFactura, Program.facturas); Program.facturas[idFactura].Imprimir(idMesa-1);
                     Console.WriteLine("Presione cualquier tecla para salir"); Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
                 case 7: // Datos a guardar en el archivo CSV
                     do
@@ -166,7 +168,58 @@ namespace Taller2
 
 
                     break;
-                case 8: System.Environment.Exit(0); break;
+                case 8:
+                    rect = false;
+                    do
+                    {
+                        Console.WriteLine("Ingrese el id de la factura, recuerde que es un número del 0 al 9"); Console.WriteLine(); Console.WriteLine();
+                        Console.Write("- - > "); rect = int.TryParse(Console.ReadLine(), out idFactura);
+                    } while (!rect && idFactura >= 0 && idMesa <= 9);// Ruta del archivo CSV
+
+
+                    string rutaArchivoLec = $"factura{idFactura}.csv";
+
+                    // Leer el archivo CSV línea por línea
+                    try
+                    {
+                        using (StreamReader sr = new StreamReader(rutaArchivoLec))
+                        {
+                            string linea;
+                            while ((linea = sr.ReadLine()) != null)
+                            {
+                                // Dividir la línea en sus valores utilizando la coma como delimitador
+                                string[] valores = linea.Split(',');
+
+                                // Imprimir los valores
+                                foreach (string valor in valores)
+                                {
+                                    Console.Write(valor + "\t");
+                                }
+                                Console.WriteLine();
+                            }
+                        }
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        // Captura la excepción si el archivo no existe
+                        Console.WriteLine($"El archivo {rutaArchivoLec} no existe.");
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Presione cualquier tecla para salir"); Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
+
+                case 9:
+                    rect = false;
+                    int idProd;
+                    do
+                    {
+                        Console.WriteLine("Ingrese el id del producto que desea buscar, recuerde que es un número del 0 al 15"); Console.WriteLine(); Console.WriteLine();
+                        Console.Write("- - > "); rect = int.TryParse(Console.ReadLine(), out idProd);
+                    } while (!rect && idProd >= 0 && idProd <= 15);
+
+                    Console.WriteLine($"Nombre: "+Program.productosCarta[idProd].Nombre); Console.WriteLine($"Precio: " + Program.productosCarta[idProd].Precio);
+                    Console.WriteLine("Presione cualquier tecla para salir"); Console.WriteLine(); Console.Write("- - > "); Console.ReadKey(); break;
+
+                case 10: System.Environment.Exit(0); break;
                 default: Console.WriteLine("Opción no existente, vuelva a ingresar una opción."); Console.ReadKey(); ImprimirMenu(); break;
             }
         }
@@ -186,37 +239,6 @@ namespace Taller2
             Console.Write("- - > "); Console.ReadKey(); ImprimirMenu();
         }
 
-       /* public void EditarCarta()
-        {
-            Producto[] productosCarta = new Producto[16];
-
-            int id = 0; string opcion;
-            string newN; float newP; int newC;
-            do
-            {
-                Console.WriteLine();
-                Console.WriteLine("Ingrese cual producto de la carta desea cambiar");
-                Console.WriteLine();
-                Console.Write("- - > "); nomProducto = Console.ReadLine();
-               // mesa.BuscarProducto(nomProducto, id); //EL buscador no funciona
-
-                Console.WriteLine();
-                Console.WriteLine("¿Desea cambiar <" + productosCarta[id] + ">?");
-                Console.Write("- - > "); opcion = Console.ReadLine();
-
-            } while (opcion == "no"); Console.WriteLine(); Console.WriteLine();
-
-            Console.WriteLine("Ingrese los nuevos datos");
-            Console.WriteLine(); Console.WriteLine("Nuevo nombre: ");
-            Console.Write("- - > "); newN = Console.ReadLine();
-            Console.WriteLine(); Console.WriteLine("Nuevo precio: ");
-            Console.Write("- - > "); newP = Convert.ToSingle(Console.ReadLine());
-            Console.WriteLine(); Console.WriteLine("Nueva cantidad: ");
-            Console.Write("- - > "); newC = Convert.ToInt32(Console.ReadLine());
-            productosCarta[id] = new Producto(newN, newP, newC);
-
-            Console.WriteLine(); Console.WriteLine(); Console.WriteLine("*  Producto editado exitosamente  *");
-            Console.ReadKey(); ImprimirMenu();
-        }*/
+ 
     }
 }
